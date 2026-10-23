@@ -1,0 +1,6 @@
+name = "yellowtips-api"
+main = "src/index.ts"
+compatibility_date = "2026-01-01"
+
+[vars]
+API_KEY_PREFIX = "yt_live_"
