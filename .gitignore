@@ -9,3 +9,5 @@ inserts_resumen_*.sql
 debug*.mjs
 peek*.mjs
 indeterminados_ids.txt
+*.ps1  
+*.bak2 

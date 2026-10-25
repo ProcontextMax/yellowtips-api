@@ -13,3 +13,11 @@ id = "623c93a551ff438bbb609efbea8999a1"
 binding = "DB"
 database_name = "yellowtips-db"
 database_id = "f74e2d64-4843-42aa-9a9c-63faffb12031"
+
+
+[ai]
+binding = "AI"
+
+[[vectorize]]
+binding = "VECTORIZE"
+index_name = "yellowtips-sentencias"
