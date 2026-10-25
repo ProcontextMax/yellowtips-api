@@ -713,7 +713,6 @@ export default {
         },
       });
     }
-
     // --- 4. 404 FALLBACK ---
     return jsonResponse({
       status: "error",

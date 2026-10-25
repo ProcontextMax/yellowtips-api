@@ -55,7 +55,8 @@ async function main() {
         err++; fallidos.push({ id: r.id, motivo: `HTTP ${res.status}` });
         console.log(`${n} ❌ ${r.id} (HTTP ${res.status})`);
       } else {
-        const html = await res.text();
+                const buf = await res.arrayBuffer();
+        const html = new TextDecoder('iso-8859-1').decode(buf);
         if (isSoft404(html)) {
           soft++; fallidos.push({ id: r.id, motivo: 'soft 404' });
           console.log(`${n} 🚫 ${r.id} (soft 404)`);
