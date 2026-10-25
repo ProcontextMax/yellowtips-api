@@ -1,5 +1,11 @@
 node_modules/
 .wrangler/
-.dev.vars
-.env
-*.log
+sentencias.json
+test-key.json
+data/
+inserts_resumen_*.sql
+*.backup
+*.capa1-24oct
+debug*.mjs
+peek*.mjs
+indeterminados_ids.txt
