@@ -11,3 +11,11 @@ peek*.mjs
 indeterminados_ids.txt
 *.ps1  
 *.bak2 
+admin_*.txt
+_reembed_block.txt
+check*.txt
+*_verify.txt
+tail_err.log
+sentencias.backup.*.json
+*.bak.*
+diag.mjs

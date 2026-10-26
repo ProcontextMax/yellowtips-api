@@ -5,6 +5,7 @@ export interface Env {
   PADDLE_WEBHOOK_SECRET: string;
   AI: Ai;
   VECTORIZE: VectorizeIndex;
+  R2: R2Bucket;
 }
 
 const PLAN_LIMITS: Record<string, number> = {

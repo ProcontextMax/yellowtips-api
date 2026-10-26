@@ -21,3 +21,6 @@ binding = "AI"
 [[vectorize]]
 binding = "VECTORIZE"
 index_name = "yellowtips-sentencias"
+[[r2_buckets]]
+bucket_name = "yellowtips-textos"
+binding = "R2"
