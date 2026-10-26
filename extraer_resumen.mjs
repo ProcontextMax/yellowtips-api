@@ -214,8 +214,23 @@ if (texto.length > MAX_SCAN) texto = texto.slice(0, MAX_SCAN);
   }
 
   let ratio = '';
-  const mRatio = problema.match(RE_RATIO_EXPL);
-  if (mRatio) ratio = mRatio[1].trim();
+  {
+    const RE_CONS_G = /CONSIDERACIONES(?:\s+Y\s+(?:FUNDAMENTOS|CONSIDERACIONES))?\s*:?\s*/gim;
+    const allCons = [...preDecision.matchAll(RE_CONS_G)];
+    const cleanCons = allCons.filter(x => x.index === 0 || /[\n.:;]\s*$/.test(preDecision.slice(Math.max(0, x.index - 30), x.index)));
+    if (cleanCons.length > 0) {
+      let blk = '';
+      for (let i = cleanCons.length - 1; i >= 0; i--) {
+        const b = preDecision.slice(cleanCons[i].index + cleanCons[i][0].length);
+        if (b.trim().length >= 500) { blk = b.trim(); break; }
+      }
+      if (!blk) blk = preDecision.slice(cleanCons[0].index + cleanCons[0][0].length).trim();
+      const decIdx = blk.search(/\n\s*(?:[IVX]+\.?\s*)?(?:DECISI[O\u00d3]N|R\s*E\s*S\s*U\s*E\s*L\s*V\s*E)\b/i);
+      if (decIdx > 200) blk = blk.slice(0, decIdx).trim();
+      if (blk.length > 3000) blk = blk.slice(-3000).trim();
+      ratio = blk;
+    }
+  }
 
   const sentido  = detectSentido(decision);
   const derechos = detectDerechos((problema + ' ' + decision).slice(0, 8000));
